@@ -210,7 +210,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = '*.go',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  group = vim.api.nvim_create_augroup('golang-auto-import', { clear = true }),
   callback = function()
     local params = vim.lsp.util.make_range_params()
     params.context = { only = { 'source.organizeImports' } }
