@@ -106,7 +106,7 @@ vim.opt.number = true
 -- vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.mouse = ''
+vim.opt.mouse = 'v'
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
@@ -256,6 +256,13 @@ vim.opt.rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
+  {
+    'mbbill/undotree',
+    opts = {},
+    config = function()
+      vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+    end,
+  },
   {
     'rmagatti/auto-session',
     lazy = false,
