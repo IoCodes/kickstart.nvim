@@ -160,11 +160,11 @@ vim.opt.scrolloff = 10
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`vim.keymap.set('n', '<leader>n', ':NERDTreeFocus<CR>')
--- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<leader>n', ':NERDTreeToggle<CR>')
 
 vim.keymap.set('n', '<leader>dd', '"_d')
 
+-- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
