@@ -163,6 +163,8 @@ vim.opt.scrolloff = 10
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<leader>n', ':NERDTreeToggle<CR>')
 
+vim.keymap.set('n', '<leader>dd', '"_d')
+
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
