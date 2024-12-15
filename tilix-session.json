@@ -10,16 +10,6 @@
             "uuid": "5d48d4aa-3ec8-4bb9-9f29-2386552c6812",
             "width": 2560
         },
-        "child2": {
-            "directory": "/mnt/HDD/www/html/",
-            "height": 146,
-            "profile": "2b7c4080-0ddd-46c5-8f23-563fd3ba789d",
-            "readOnly": false,
-            "synchronizedInput": true,
-            "type": "Terminal",
-            "uuid": "818d0b2b-600f-40ff-bebf-b5a93a5bede4",
-            "width": 2560
-        },
         "orientation": 1,
         "position": 89,
         "ratio": 0.891991182953710493,
