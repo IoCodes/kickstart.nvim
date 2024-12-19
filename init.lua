@@ -233,8 +233,21 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     vim.lsp.buf.format { async = false }
   end,
 })
+-- [[ Git pull branch to fetch other changes before starting]]
+vim.api.nvim_create_autocmd('VimEnter', {
+  desc = 'Auto git pull on project enter if git is present',
+  group = vim.api.nvim_create_augroup('custom-git-pull', { clear = true }),
+
+  callback = function()
+    if vim.fn.filereadable '.git/config' == 1 then
+      vim.cmd 'silent !git pull'
+      print 'Git pull completed.'
+    end
+  end,
+})
 
 -- [[ Internal NVIM terminal configuration ]]
+local jID = 0
 vim.api.nvim_create_autocmd('TermOpen', {
   desc = 'Remove terminal numbers and relative numbers',
   group = vim.api.nvim_create_augroup('custom-term-open', { clear = true }),
@@ -249,6 +262,21 @@ vim.keymap.set('n', '<leader>st', function()
   vim.cmd.term()
   vim.cmd.wincmd 'J'
   vim.api.nvim_win_set_height(0, 10)
+  jID = vim.bo.channel
+end)
+
+vim.keymap.set('n', '<leader>pod', function()
+  vim.fn.chansend(
+    jID,
+    { 'gcloud config configurations activate pod\r\nkubectl config use-context gke_podeo-334815_europe-west4-a_podeo-v5-testing-cluster-eu\r\n' }
+  )
+end)
+
+vim.keymap.set('n', '<leader>da', function()
+  vim.fn.chansend(
+    jID,
+    { 'gcloud config configurations activate da-main\r\nkubectl config use-context gke_domainagents-admin-222615_us-central1-a_da-ms-cluster-testing \r\n' }
+  )
 end)
 -- [[ Internal NVIM terminal configuration ]]
 
@@ -359,7 +387,7 @@ require('lazy').setup({
     },
     config = function()
       require('auto-session').setup {
-        provider_selector = function(bufnr, filetype, buftype)
+        provider_selector = function()
           return { 'treesitter', 'indent' }
         end,
       }
