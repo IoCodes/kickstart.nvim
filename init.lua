@@ -163,6 +163,7 @@ vim.opt.scrolloff = 10
 vim.keymap.set('n', '<leader>n', ':NERDTreeToggle<CR>')
 
 vim.keymap.set('n', '<leader>dd', '"_d')
+vim.keymap.set('v', '<leader>dd', '"_d')
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -241,10 +242,10 @@ vim.api.nvim_create_autocmd('VimEnter', {
   callback = function()
     if vim.fn.filereadable '.git/config' == 1 then
       vim.cmd 'silent !git pull'
-      print 'Git pull completed.'
     end
   end,
 })
+-- [[ Git pull branch to fetch other changes before starting]]
 
 -- [[ Internal NVIM terminal configuration ]]
 local jID = 0
