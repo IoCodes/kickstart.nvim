@@ -275,6 +275,13 @@ vim.keymap.set('n', '<leader>sc', function()
   vim.api.nvim_win_set_width(0, 60)
 end)
 
+vim.keymap.set('n', '<leader>sg', function()
+  vim.cmd.vnew()
+  vim.cmd.term 'gemini'
+  vim.cmd.wincmd 'D'
+  vim.api.nvim_win_set_width(0, 60)
+end)
+
 vim.keymap.set('n', '<leader>pod', function()
   vim.fn.chansend(
     jID,
