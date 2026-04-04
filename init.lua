@@ -265,6 +265,7 @@ vim.keymap.set('n', '<leader>st', function()
   vim.cmd.term()
   vim.cmd.wincmd 'J'
   vim.api.nvim_win_set_height(0, 10)
+  vim.wo.winfixheight = true
   jID = vim.bo.channel
 end)
 
@@ -272,14 +273,24 @@ vim.keymap.set('n', '<leader>sc', function()
   vim.cmd.vnew()
   vim.cmd.term 'claude'
   vim.cmd.wincmd 'D'
-  vim.api.nvim_win_set_width(0, 60)
+  vim.api.nvim_win_set_width(0, 65)
+  vim.wo.winfixwidth = true
 end)
 
 vim.keymap.set('n', '<leader>sgt', function()
   vim.cmd.vnew()
   vim.cmd.term 'gemini'
   vim.cmd.wincmd 'D'
-  vim.api.nvim_win_set_width(0, 60)
+  vim.api.nvim_win_set_width(0, 65)
+  vim.wo.winfixwidth = true
+end)
+
+vim.keymap.set('n', '<leader>sx', function()
+  vim.cmd.vnew()
+  vim.cmd.term 'codex'
+  vim.cmd.wincmd 'D'
+  vim.api.nvim_win_set_width(0, 65)
+  vim.wo.winfixwidth = true
 end)
 
 vim.keymap.set('n', '<leader>pod', function()
